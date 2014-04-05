@@ -1,4 +1,6 @@
-require File.expand_path '../../spec_helper.rb', __FILE__
+require_relative '../spec_helper.rb'
+require_relative '../../lib/notifier'
+require_relative '../support/test_notifier'
 
 describe Notifier::Base do
 

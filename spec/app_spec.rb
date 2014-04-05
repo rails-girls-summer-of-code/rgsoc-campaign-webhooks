@@ -1,4 +1,5 @@
-require File.expand_path '../spec_helper.rb', __FILE__
+require_relative './spec_helper.rb'
+require_relative '../app.rb'
 
 describe CampaignNotifier do
 
