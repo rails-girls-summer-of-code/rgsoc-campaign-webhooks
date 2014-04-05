@@ -7,6 +7,8 @@ class CampaignNotifier < Sinatra::Base
 
   config_file 'config/app.yml'
 
+  Notifier.require_notifiers
+
   get '/ping' do
     'ok'
   end
