@@ -16,9 +16,9 @@ describe Notifier::Base do
 
       notifier = TestNotifier.new
 
-      notifier.should_receive(:notify)
+      notifier.should_receive(:notify).with("Test Message")
 
-      subject.notify!
+      subject.notify!("Test Message")
     end
   end
 

@@ -19,8 +19,8 @@ module Notifier
       @@registered << self
     end
 
-    def notify!
-      @@registered.each { |n| n.notify if n.respond_to?(:notify) }
+    def notify!(msg)
+      @@registered.each { |n| n.notify(msg) if n.respond_to?(:notify) }
     end
   end
 
