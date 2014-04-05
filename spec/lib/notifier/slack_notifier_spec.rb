@@ -3,6 +3,8 @@ require_relative '../../../lib/notifier'
 require_relative '../../../lib/notifier/slack_notifier'
 
 describe SlackNotifier do
+  subject { SlackNotifier.new(Notifier::Registry.new) }
+
   it "has a notify method" do
     subject.respond_to?(:notify).should be(true)
   end

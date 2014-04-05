@@ -4,8 +4,8 @@ class SlackNotifier < Notifier::Base
   attr_reader :account, :token, :channel
 
 
-  def initialize
-    super
+  def initialize(registry)
+    super(registry)
     @account = settings.slack["account"]
     @token   = settings.slack["token"]
     @channel = settings.slack["channel"]

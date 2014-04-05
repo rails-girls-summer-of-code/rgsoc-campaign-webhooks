@@ -7,7 +7,7 @@ class CampaignNotifier < Sinatra::Base
 
   config_file 'config/app.yml'
 
-  Notifier.require_notifiers
+  Notifier.require_and_register_notifiers
 
   post '/' do
     authenticate!

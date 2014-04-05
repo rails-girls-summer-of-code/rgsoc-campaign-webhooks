@@ -4,22 +4,24 @@ require_relative '../../lib/notifier'
 class TestNotifier < Notifier::Base; end
 
 describe Notifier::Base do
+  let(:registry) { Notifier::Registry.new }
+  subject        { Notifier::Base.new(registry) }
 
-  describe "#register" do
-    it "adds the class to the notifier array" do
-      -> { subject.register }.should change(subject.class.class_eval('@@registered'), :size)
-    end
+  it "increases the Registry.registered size" do
+    -> {
+      Notifier::Base.new(registry)
+    }.should change(registry.registered, :size).by(1)
   end
 
   describe "#notify!" do
     it "calls notify on ever registered Notifier" do
-      subject.class.class_eval('@@registered').each { |n| n.stub(:notify).and_return(true) }
-
-      notifier = TestNotifier.new
+      notifier         = TestNotifier.new(registry)
+      another_notifier = TestNotifier.new(registry)
 
       notifier.should_receive(:notify).with("Test Message")
+      another_notifier.should_receive(:notify).with("Test Message")
 
-      subject.notify!("Test Message")
+      registry.notify!("Test Message")
     end
   end
 
