@@ -1,4 +1,4 @@
-require_relative '../../spec_helper.rb'
+require_relative '../../spec_helper'
 require_relative '../../../lib/notifier'
 require_relative '../../../lib/notifier/slack_notifier'
 
