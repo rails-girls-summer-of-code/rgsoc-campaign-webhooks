@@ -11,6 +11,10 @@ module Notifier
   class Base
     @@registered = []
 
+    def settings
+      CampaignNotifier.settings
+    end
+
     def initialize
       register
     end
