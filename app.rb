@@ -9,8 +9,17 @@ class CampaignNotifier < Sinatra::Base
 
   Notifier.require_notifiers
 
-  get '/ping' do
+  post '/' do
+    authenticate!
     'ok'
+  end
+
+  protected
+
+  def authenticate!
+    unless params[:auth_token] && settings.auth_tokens.values.include?(params[:auth_token])
+      status 403
+    end
   end
 
 end
