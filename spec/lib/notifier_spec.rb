@@ -10,6 +10,8 @@ describe Notifier::Base do
 
   describe "#notify!" do
     it "calls notify on ever registered Notifier" do
+      subject.class.class_eval('@@registered').each { |n| n.stub(:notify).and_return(true) }
+
       notifier = TestNotifier.new
 
       notifier.should_receive(:notify)
