@@ -1,6 +1,7 @@
 require_relative '../spec_helper.rb'
 require_relative '../../lib/notifier'
-require_relative '../support/test_notifier'
+
+class TestNotifier < Notifier::Base; end
 
 describe Notifier::Base do
 
