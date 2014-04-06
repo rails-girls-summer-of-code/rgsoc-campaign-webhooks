@@ -3,7 +3,7 @@ require_relative '../../../lib/notifier'
 require_relative '../../../lib/notifier/slack_notifier'
 
 describe SlackNotifier do
-  subject { SlackNotifier.new(Registry.new) }
+  subject { SlackNotifier.new(Registry::Base.new) }
 
   it "has a preocess method" do
     subject.respond_to?(:process).should be(true)

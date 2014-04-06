@@ -4,13 +4,13 @@ require_relative '../../lib/notifier'
 class TestNotifier < Notifier::Base; end
 
 describe Notifier::Base do
-  let(:registry) { Registry.new }
+  let(:registry) { Registry::Base.new }
   subject        { Notifier::Base.new(registry) }
 
   it "increases the Registry.registered size" do
-    -> {
+    lambda do
       Notifier::Base.new(registry)
-    }.should change(registry.registered, :size).by(1)
+    end.should change(registry.registered, :size).by(1)
   end
 
   describe "#notify!" do

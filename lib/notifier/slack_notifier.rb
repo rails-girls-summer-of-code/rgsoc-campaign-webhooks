@@ -3,7 +3,6 @@ require 'json'
 class SlackNotifier < Notifier::Base
   attr_reader :account, :token, :channel
 
-
   def initialize(registry)
     super(registry)
     @account = settings.slack["account"]
