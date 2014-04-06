@@ -32,7 +32,7 @@ class SlackNotifier < Notifier::Base
     connection.request(request)
   end
 
-  def notify(msg)
+  def process(msg)
     data = {
       channel: channel,
       text:    msg

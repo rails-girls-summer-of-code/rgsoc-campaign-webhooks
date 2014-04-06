@@ -5,11 +5,11 @@ class Registry
     @registered = []
   end
 
-  def register(notifier)
-    registered << notifier
+  def register(registrant)
+    registered << registrant
   end
 
-  def notify!(msg)
-    registered.each { |n| n.notify(msg) if n.respond_to?(:notify) }
+  def process!(payload)
+    registered.each { |n| n.process(payload) if n.respond_to?(:process) }
   end
 end

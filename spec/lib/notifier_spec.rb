@@ -18,10 +18,10 @@ describe Notifier::Base do
       notifier         = TestNotifier.new(registry)
       another_notifier = TestNotifier.new(registry)
 
-      notifier.should_receive(:notify).with("Test Message")
-      another_notifier.should_receive(:notify).with("Test Message")
+      notifier.should_receive(:process).with("Test Message")
+      another_notifier.should_receive(:process).with("Test Message")
 
-      registry.notify!("Test Message")
+      registry.process!("Test Message")
     end
   end
 

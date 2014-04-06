@@ -5,15 +5,15 @@ require_relative '../../../lib/notifier/slack_notifier'
 describe SlackNotifier do
   subject { SlackNotifier.new(Registry.new) }
 
-  it "has a notify method" do
-    subject.respond_to?(:notify).should be(true)
+  it "has a preocess method" do
+    subject.respond_to?(:process).should be(true)
   end
 
   describe '#notify' do
     it "sends a webhook to slack" do
       request = stub_request(:post, subject.hook_url)
 
-      subject.notify("Test")
+      subject.process("Test")
 
       request.should have_been_made
     end
