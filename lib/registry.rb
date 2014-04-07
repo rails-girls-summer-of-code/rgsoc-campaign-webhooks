@@ -4,8 +4,12 @@ module Registry
                 :registerables
 
     def initialize(registerables = nil)
-      @registered   = []
-      @registerables = registerables
+      @registered = []
+
+      if registerables
+        @registerables = registerables
+        require_registerables
+      end
     end
 
     def register(registrant)
@@ -15,7 +19,6 @@ module Registry
     end
 
     def require_registerables
-      return unless registerables
       Dir["#{File.dirname(__FILE__)}/#{@registerables}/*.rb"].sort.each do |f|
         require f
         npc = File.basename(f).gsub('.rb', '').split('_').map { |fp| fp.capitalize }.join
@@ -31,7 +34,7 @@ module Registry
   module Registerable
     attr_accessor :registry
 
-    def initialize(registry)
+    def initialize(registry=nil)
       @registry = registry.register(self) if registry
       super()
     end
