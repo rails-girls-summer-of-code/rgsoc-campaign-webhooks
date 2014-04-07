@@ -1,9 +1,9 @@
 require_relative '../spec_helper'
 require_relative '../../lib/registry'
 
-describe Notifier::Base do
+describe Registry::Base do
   subject        { Registry::Base.new }
-  let(:notifier) { Notifier::Base.new }
+  let(:notifier) { Notifier.new }
 
   describe "register" do
     it "increases the Registry.registered size" do

@@ -1,15 +1,15 @@
 require_relative '../spec_helper'
 require_relative '../../lib/notifier'
 
-class TestNotifier < Notifier::Base; end
+class TestNotifier < Notifier; end
 
-describe Notifier::Base do
+describe Notifier do
   let(:registry) { Registry::Base.new }
-  subject        { Notifier::Base.new(registry) }
+  subject        { Notifier.new(registry) }
 
   it "increases the Registry.registered size" do
     lambda do
-      Notifier::Base.new(registry)
+      Notifier.new(registry)
     end.should change(registry.registered, :size).by(1)
   end
 

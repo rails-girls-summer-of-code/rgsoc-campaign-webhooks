@@ -1,6 +1,6 @@
 require 'json'
 
-class SlackNotifier < Notifier::Base
+class SlackNotifier < Notifier
   attr_reader :account, :token, :channel
 
   def initialize(registry)
