@@ -3,9 +3,9 @@ require_relative '../spec_helper'
 require_relative '../../lib/event'
 
 describe Event do
-  subject { Event.new({ type: "ping" }.to_json) }
+  subject { Event.new() }
 
-  it "has a message method" do
-    subject.respond_to?(:message).should be(true)
+  it "has a process method" do
+    subject.respond_to?(:process).should be(true)
   end
 end

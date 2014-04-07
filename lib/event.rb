@@ -1,12 +1,7 @@
 class Event
-  attr_reader :payload
+  include Registry::Registerable
 
-  def initialize(payload)
-    @payload = payload
+  def process(msg)
+    msg.to_s
   end
-
-  def message
-    payload.to_s
-  end
-
 end
