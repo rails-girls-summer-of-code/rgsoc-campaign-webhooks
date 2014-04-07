@@ -1,9 +1,7 @@
 require_relative './registry'
+require_relative './configurable'
 
 class Notifier
+  extend Configurable
   include Registry::Registerable
-
-  def settings
-    CampaignNotifier.settings
-  end
 end

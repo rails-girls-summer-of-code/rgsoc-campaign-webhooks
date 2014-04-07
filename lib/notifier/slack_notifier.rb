@@ -1,14 +1,7 @@
 require 'json'
 
 class SlackNotifier < Notifier
-  attr_reader :account, :token, :channel
-
-  def initialize(registry)
-    super(registry)
-    @account = settings.notifier['slack']["account"]
-    @token   = settings.notifier['slack']["token"]
-    @channel = settings.notifier['slack']["channel"]
-  end
+  configurable :account, :token, :channel
 
   def hook_url
     @hook_url ||= "https://#{account}.slack.com/services/hooks/incoming-webhook?token=#{token}"
