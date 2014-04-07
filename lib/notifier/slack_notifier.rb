@@ -5,9 +5,9 @@ class SlackNotifier < Notifier::Base
 
   def initialize(registry)
     super(registry)
-    @account = settings.slack["account"]
-    @token   = settings.slack["token"]
-    @channel = settings.slack["channel"]
+    @account = settings.notifier['slack']["account"]
+    @token   = settings.notifier['slack']["token"]
+    @channel = settings.notifier['slack']["channel"]
   end
 
   def hook_url

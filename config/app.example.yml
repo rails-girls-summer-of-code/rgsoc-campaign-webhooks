@@ -4,10 +4,11 @@ development:
   stripe:
     public_key: "pk_test_UBER_SECRET"
     secret_key: "sk_test_UBER_SECRET"
-  slack:
-    account: 'rgsoc-test'
-    token:   'UBER_TOKEN'
-    channel: 'bestchannelever'
+  notifier:
+    slack:
+      account: 'rgsoc-test'
+      token:   'UBER_TOKEN'
+      channel: 'bestchannelever'
 
 test:
   auth_tokens:
@@ -15,7 +16,8 @@ test:
   stripe:
     public_key: "pk_test_UBER_SECRET"
     secret_key: "sk_test_UBER_SECRET"
-  slack:
-    account: 'rgsoc-test'
-    token:   'UBER_TOKEN'
-    channel: 'bestchannelever'
+  notifier:
+    slack:
+      account: 'rgsoc-test'
+      token:   'UBER_TOKEN'
+      channel: 'bestchannelever'
